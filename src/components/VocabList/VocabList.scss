@@ -1,0 +1,11 @@
+/* npm install --save reactstrap react react-dom
+npm install --save bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 600px;
+        margin: 7rem auto;
+    }
+    
+}

@@ -91,9 +91,11 @@ export default function Sidebar(props) {
         target="_blank"
       >
         <div className={classes.logoImage}>
-          <img src={logo} alt="logo" className={classes.img} />
+          <img src={logo} alt="logo" className={classes.img} style={{width: "25px"}}/>
         </div>
-        {logoText}
+        <span style={{textAlign: "center", fontSize: "15px"}}>
+          {logoText}
+        </span>
       </a>
     </div>
   );

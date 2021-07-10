@@ -3,19 +3,34 @@
 // #############################
 
 var bugs = [
-  'Sign contract for "What are conference organizers afraid of?"',
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  "Create 4 Invisible User Experiences you Never Knew About",
+  "Make flashcards",
+  "Watch a German movie and jot down words",
+  "Download 'Word of the day' app",
 ];
 var website = [
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"',
+  "Write practice sentences with prepositions",
+  "Do an online grammar quiz",
+  "Make diagram for trenbar verbs",
 ];
 var server = [
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"',
+  "Sign up for a german class",
+  "Find a german tandem partner",
+  "Browse german practice meetup groups",
+];
+
+var vocab = [
+  {
+    de: "German1",
+    en: "English1",
+  },
+  {
+    de: "German2",
+    en: "English2",
+  },
+  {
+    de: "German3",
+    en: "English2",
+  },
 ];
 
 module.exports = {
@@ -23,4 +38,5 @@ module.exports = {
   bugs,
   website,
   server,
+  vocab,
 };
