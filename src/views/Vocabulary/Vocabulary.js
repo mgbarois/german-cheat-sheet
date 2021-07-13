@@ -14,9 +14,11 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import Button from "components/CustomButtons/Button.js";
-import VocabList from "components/VocabList/VocabList.js";
+// import VocabList from "components/VocabList/VocabList.js";
+import EditableList from "components/EditableList/EditableList.js";
 import TranslationOutput from "components/TranslationOutput/TranslationOutput.js";
 import "./Vocabulary.scss";
+// import { updateConstructSignature } from "typescript";
 
 const styles = {
   cardCategoryWhite: {
@@ -57,9 +59,21 @@ export default function Vocabulary() {
 
   const classes = useStyles();
 
+  const updateLookupCount = (inputWord) => {
+    fetch("http://localhost:3001/addLookup", {
+      method: "post",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ inputWord }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const fetchTranslation = (inputWord) => {
     console.log("Fetching translation for: ", inputWord);
-
     fetch(
       `https://petapro-translate-v1.p.rapidapi.com/?query=${inputWord}&langpair=${translDir}`,
       {
@@ -72,8 +86,9 @@ export default function Vocabulary() {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         setTranslOutput(data.slice(0, 2));
+        console.log(data);
+        updateLookupCount();
       })
       .catch((err) => {
         console.error(err);
@@ -127,7 +142,7 @@ export default function Vocabulary() {
             </p>
           </CardHeader>
           <CardBody>
-            <VocabList />
+            <EditableList itemType="Vocab" />
           </CardBody>
         </Card>
       </GridItem>

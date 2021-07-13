@@ -12,22 +12,23 @@ import Translate from "@material-ui/icons/Translate";
 import ListAlt from "@material-ui/icons/ListAlt";
 import Search from "@material-ui/icons/Search";
 import Edit from "@material-ui/icons/Edit";
-import DirectionsWalk from "@material-ui/icons/DirectionsWalk";
+import FolderSpecial from "@material-ui/icons/FolderSpecial";
 import Forum from "@material-ui/icons/Forum";
 
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
+// import Table from "components/Table/Table.js";
+// import Tasks from "components/Tasks/Tasks.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import EditableList from "components/EditableList/EditableList.js";
 
-import { bugs, website, server } from "variables/general.js";
+// import { website, server } from "variables/general.js";
 
 // import {
 //   dailySalesChart,
@@ -43,47 +44,43 @@ const useStyles = makeStyles(styles);
 export default function Dashboard() {
   const classes = useStyles();
   const [vocabCount, setVocabCount] = useState(0);
-  const [dictLookupCount, setDictLookupCount] = useState(0);
-  const [prepCount, setPrepCount] = useState(0);
+  const [lookupCount, setLookupCount] = useState(0);
   const [taskCount, setTaskCount] = useState(0);
+  const [resourceCount, setResourceCount] = useState(0);
 
   const getVocabCount = () => {
     fetch("http://localhost:3001/vocab")
       .then((resp) => resp.json())
       .then((data) => setVocabCount(data === "Error" ? 0 : data.length))
-      .then(console.log(vocabCount))
       .catch((err) => console.log(err));
   };
 
-  const getDictLookupCount = () => {
-    fetch("http://localhost:3001/dictLookups")
+  const getLookupCount = () => {
+    fetch("http://localhost:3001/lookup")
       .then((resp) => resp.json())
-      .then((data) => setDictLookupCount(data === "Error" ? 0 : data.length))
-      .then(console.log(dictLookupCount))
+      .then((data) => setLookupCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));
   };
 
-  const getprepCount = () => {
-    fetch("http://localhost:3001/prepositions")
+  const getResourceCount = () => {
+    fetch("http://localhost:3001/resource")
       .then((resp) => resp.json())
-      .then((data) => setPrepCount(data === "Error" ? 0 : data.length))
-      .then(console.log(prepCount))
+      .then((data) => setResourceCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));
   };
 
   const getTaskCount = () => {
-    fetch("http://localhost:3001/tasks")
+    fetch("http://localhost:3001/task")
       .then((resp) => resp.json())
       .then((data) => setTaskCount(data === "Error" ? 0 : data.length))
-      .then(console.log(taskCount))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     getVocabCount();
-    getDictLookupCount();
-    getprepCount();
+    getLookupCount();
     getTaskCount();
+    getResourceCount();
   }, []);
 
   return (
@@ -119,29 +116,12 @@ export default function Dashboard() {
                 <Translate />
               </CardIcon>
               <p className={classes.cardCategory}>Translations</p>
-              <h3 className={classes.cardTitle}>{dictLookupCount}</h3>
+              <h3 className={classes.cardTitle}>{lookupCount}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <Search />
                 <a href="/admin/vocabulary">Look up more words</a>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <DirectionsWalk />
-              </CardIcon>
-              <p className={classes.cardCategory}>Prepositions</p>
-              <h3 className={classes.cardTitle}>{prepCount}</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Add />
-                <a href="/admin/prepositions">Add prepositions</a>
               </div>
             </CardFooter>
           </Card>
@@ -159,6 +139,23 @@ export default function Dashboard() {
               <div className={classes.stats}>
                 <Edit />
                 <a href="#dashboard-tasks">Edit tasks</a>
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="info" stats icon>
+              <CardIcon color="info">
+                <FolderSpecial />
+              </CardIcon>
+              <p className={classes.cardCategory}>Resources</p>
+              <h3 className={classes.cardTitle}>{resourceCount}</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Add />
+                <a href="#dashboard-resources">Add resources</a>
               </div>
             </CardFooter>
           </Card>
@@ -240,49 +237,39 @@ export default function Dashboard() {
       </GridContainer> */}
       <GridContainer>
         <GridItem xs={12} sm={12} md={6}>
+          <h4 id="dashboard-tasks">Tasks</h4>
           <CustomTabs
-            id="dashboard-tasks"
             title="Tasks:"
             headerColor="primary"
             tabs={[
               {
                 tabName: "Vocab",
                 tabIcon: ListAlt,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0, 2]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={bugs}
-                  />
-                ),
+                tabContent: <EditableList itemType="Task" category="vocab" />,
               },
               {
                 tabName: "Grammar",
                 tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={website}
-                  />
-                ),
+                tabContent: <EditableList itemType="Task" category="grammar" />,
               },
               {
                 tabName: "Practice",
                 tabIcon: Forum,
                 tabContent: (
-                  <Tasks
-                    checkedIndexes={[1, 2]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={server}
-                  />
+                  <EditableList itemType="Task" category="practice" />
                 ),
+                // <Tasks
+                //   checkedIndexes={[0]}
+                //   tasksIndexes={[0, 1, 2]}
+                //   tasks={website}
+                // />
               },
             ]}
           />
         </GridItem>
         <GridItem xs={12} sm={12} md={6}>
-          <Card>
+          <h4 id="dashboard-resources">Resources</h4>
+          <Card id="dashboard-resources">
             <CardHeader color="warning">
               <h4 className={classes.cardTitleWhite}>Useful Resources</h4>
               <p className={classes.cardCategoryWhite}>
@@ -290,7 +277,8 @@ export default function Dashboard() {
               </p>
             </CardHeader>
             <CardBody>
-              <Table
+              <EditableList itemType="Resource" />
+              {/* <Table
                 tableHeaderColor="warning"
                 tableData={[
                   [
@@ -312,7 +300,7 @@ export default function Dashboard() {
                     </a>,
                   ],
                 ]}
-              />
+              /> */}
             </CardBody>
           </Card>
         </GridItem>
