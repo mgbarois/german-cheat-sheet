@@ -57,15 +57,7 @@ export default function TableList() {
               tableHeaderColor="primary"
               tableHead={["", "Nom", "Acc.", "Dat."]}
               tableData={[
-                [
-                  "1s",
-                  // eslint-disable-next-line react/jsx-key
-                  <span>
-                    ich<span style={{ color: "red" }}>test</span>
-                  </span>,
-                  "mich",
-                  "mir",
-                ],
+                ["1s", "ich", "mich", "mir"],
                 ["2s", "du", "dich", "dir"],
                 ["M", "ser", "ihn", "ihm"],
                 ["F", "sie", "sie", "irh"],
@@ -80,38 +72,6 @@ export default function TableList() {
         </Card>
       </GridItem>
       <GridItem xs={12} sm={12} md={6}>
-        {/* <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>Possessive</h4>
-            <p className={classes.cardCategoryWhite}>Pronouns</p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park",
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten",
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"],
-              ]}
-            />
-          </CardBody>
-        </Card> */}
         <PossessivePronouns classes={classes} />
       </GridItem>
     </GridContainer>

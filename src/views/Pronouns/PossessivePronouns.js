@@ -18,9 +18,9 @@ const PossessivePronouns = () => {
     dat: "er",
   };
   const neutInflections = {
-    nom: "e",
-    acc: "e",
-    dat: "er",
+    nom: "",
+    acc: "",
+    dat: "em",
   };
 
   return (

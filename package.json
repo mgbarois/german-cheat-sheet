@@ -1,7 +1,7 @@
 {
-  "name": "material-dashboard-react",
+  "name": "german-cheat-sheet",
   "version": "1.10.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "German Cheat Sheet. Created with Material Dashboard React template by Creative Tim",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
@@ -38,7 +38,7 @@
     "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Madeleine Barois (https://www.madeleinebarois.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"

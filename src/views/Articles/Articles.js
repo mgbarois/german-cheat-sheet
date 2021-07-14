@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Table from "@material-ui/core/Table";
+// import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -41,8 +42,63 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function TableList() {
+export default function Articles() {
   const classes = useStyles();
+
+  useEffect(() => {
+    console.log(defPronounArray);
+  }, []);
+
+  const infl = {
+    color: "purple",
+    fontWeight: "bold",
+  };
+
+  const defPronounEndings = [
+    {
+      label: "Masc.",
+      nom: "er",
+      acc: "en",
+      dat: "em",
+    },
+    {
+      label: "Fem.",
+      nom: "ie",
+      acc: "ie",
+      dat: "er",
+    },
+    {
+      label: "Fem.",
+      nom: "as",
+      acc: "as",
+      dat: "em",
+    },
+    {
+      label: "Fem.",
+      nom: "ie",
+      acc: "ie",
+      dat: "en",
+    },
+  ];
+
+  const defPronounArray = defPronounEndings.map((ending, i) => {
+    return [
+      ending.label,
+      // eslint-disable-next-line react/jsx-key
+      <span key={i}>
+        d<span style={infl}>{ending.nom}</span>
+      </span>,
+      // eslint-disable-next-line react/jsx-key
+      <span key={i}>
+        d<span style={infl}>{ending.acc}</span>
+      </span>,
+      // eslint-disable-next-line react/jsx-key
+      <span key={i}>
+        d<span style={infl}>{ending.dat}</span>
+      </span>,
+    ];
+  });
+
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={6}>
@@ -52,6 +108,11 @@ export default function TableList() {
             <p className={classes.cardCategoryWhite}>Articles</p>
           </CardHeader>
           <CardBody>
+            {/* <Table
+              tableHeaderColor="primary"
+              tableHead={["", "Nom", "Acc.", "Dat."]}
+              tableData={defPronounArray}
+            /> */}
             <Table className="table">
               <thead>
                 <tr>
