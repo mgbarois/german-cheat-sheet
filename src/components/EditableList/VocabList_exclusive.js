@@ -52,7 +52,7 @@ export default function VocabList(props) {
   });
 
   const refreshVocab = () => {
-    fetch("http://localhost:3001/vocab")
+    fetch("https://cryptic-reef-33427.herokuapp.com/vocab")
       .then((resp) => resp.json())
       .then((data) => setVocab(data))
       .then(console.log(vocab))
@@ -77,7 +77,7 @@ export default function VocabList(props) {
   };
 
   const onVocabDelete = (vocabItem) => {
-    fetch("http://localhost:3001/deleteVocab", {
+    fetch("https://cryptic-reef-33427.herokuapp.com/deleteVocab", {
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -103,7 +103,7 @@ export default function VocabList(props) {
     console.log("To save:", focusVocabItem);
     const { action, id, de_word, en_word, pos } = focusVocabItem;
     if (action === "Edit") {
-      fetch("http://localhost:3001/editVocab", {
+      fetch("https://cryptic-reef-33427.herokuapp.com/editVocab", {
         method: "put",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -119,7 +119,7 @@ export default function VocabList(props) {
         .catch((err) => console.log(err));
     }
     if (action === "Add") {
-      fetch("http://localhost:3001/addVocab", {
+      fetch("https://cryptic-reef-33427.herokuapp.com/addVocab", {
         method: "post",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({

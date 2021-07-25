@@ -23,7 +23,7 @@ export default function EditableList(props) {
 
   const refreshList = () => {
     console.log("category:", category);
-    fetch(`http://localhost:3001/${itemType}${category}`)
+    fetch(`https://cryptic-reef-33427.herokuapp.com/${itemType}${category}`)
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
@@ -47,7 +47,7 @@ export default function EditableList(props) {
   };
 
   const onItemDelete = (item) => {
-    fetch(`http://localhost:3001/delete${itemType}`, {
+    fetch(`https://cryptic-reef-33427.herokuapp.com/delete${itemType}`, {
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -69,7 +69,7 @@ export default function EditableList(props) {
   };
 
   const saveEdit = (reqBody) => {
-    fetch(`http://localhost:3001/edit${itemType}`, {
+    fetch(`https://cryptic-reef-33427.herokuapp.com/edit${itemType}`, {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(reqBody),
@@ -81,7 +81,7 @@ export default function EditableList(props) {
   };
 
   const saveAdd = (reqBody) => {
-    fetch(`http://localhost:3001/add${itemType}`, {
+    fetch(`https://cryptic-reef-33427.herokuapp.com/add${itemType}`, {
       method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(reqBody),
