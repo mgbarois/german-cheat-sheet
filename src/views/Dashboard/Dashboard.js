@@ -49,28 +49,28 @@ export default function Dashboard() {
   const [resourceCount, setResourceCount] = useState(0);
 
   const getVocabCount = () => {
-    fetch("http://localhost:3001/vocab")
+    fetch("https://cryptic-reef-33427.herokuapp.com/vocab")
       .then((resp) => resp.json())
       .then((data) => setVocabCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));
   };
 
   const getLookupCount = () => {
-    fetch("http://localhost:3001/lookup")
+    fetch("https://cryptic-reef-33427.herokuapp.com/lookup")
       .then((resp) => resp.json())
       .then((data) => setLookupCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));
   };
 
   const getResourceCount = () => {
-    fetch("http://localhost:3001/resource")
+    fetch("https://cryptic-reef-33427.herokuapp.com/resource")
       .then((resp) => resp.json())
       .then((data) => setResourceCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));
   };
 
   const getTaskCount = () => {
-    fetch("http://localhost:3001/task")
+    fetch("https://cryptic-reef-33427.herokuapp.com/task")
       .then((resp) => resp.json())
       .then((data) => setTaskCount(data === "Error" ? 0 : data.length))
       .catch((err) => console.log(err));

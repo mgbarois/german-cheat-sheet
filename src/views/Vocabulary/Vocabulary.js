@@ -60,7 +60,7 @@ export default function Vocabulary() {
   const classes = useStyles();
 
   const updateLookupCount = (inputWord) => {
-    fetch("http://localhost:3001/addLookup", {
+    fetch("https://cryptic-reef-33427.herokuapp.com/addLookup", {
       method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ inputWord }),
