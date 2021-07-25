@@ -22,14 +22,14 @@ export default function EditableList(props) {
   const category = props.category === undefined ? "" : "/" + props.category;
 
   const refreshList = () => {
-    console.log("category:", category);
+    // console.log("category:", category);
     fetch(`https://cryptic-reef-33427.herokuapp.com/${itemType}${category}`)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
+        // console.log("current list:", itemType, data);
         setList(data);
       })
-      .then(console.log("LIST:", list))
+      // .then(console.log("LIST:", list))
       .catch((err) => console.log(err));
   };
 
@@ -38,7 +38,7 @@ export default function EditableList(props) {
   }, []);
 
   const onItemEdit = (item, openModal) => {
-    console.log("To edit:", item);
+    // console.log("To edit:", item);
     item.action = "Edit";
     setFocusItem(item);
     if (openModal) {
@@ -55,7 +55,7 @@ export default function EditableList(props) {
       }),
     })
       .then((resp) => resp.json())
-      .then(console.log)
+      // .then(console.log)
       .then(() => refreshList())
       .catch((err) => console.log(err));
   };
@@ -63,7 +63,7 @@ export default function EditableList(props) {
   const onItemAdd = (defaultFocus) => {
     const cleanFocus = defaultFocus;
     cleanFocus.action = "Add";
-    console.log(cleanFocus);
+    // console.log(cleanFocus);
     setFocusItem(cleanFocus);
     setModalLive(true);
   };
@@ -75,7 +75,7 @@ export default function EditableList(props) {
       body: JSON.stringify(reqBody),
     })
       .then((resp) => resp.json())
-      .then(console.log)
+      // .then(console.log)
       .then(() => refreshList())
       .catch((err) => console.log(err));
   };
@@ -87,7 +87,7 @@ export default function EditableList(props) {
       body: JSON.stringify(reqBody),
     })
       .then((resp) => resp.json())
-      .then(console.log)
+      // .then(console.log)
       .then(() => refreshList())
       .catch((err) => console.log(err));
   };

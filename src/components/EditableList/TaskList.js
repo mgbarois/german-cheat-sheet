@@ -57,7 +57,7 @@ export default function TaskList(props) {
   } = props.editFunctions;
 
   useEffect(() => {
-    console.log("Props.editFunctions", props.editFunctions);
+    // console.log("Props.editFunctions", props.editFunctions);
     setFocusItem(defaultFocus);
   }, []);
 
@@ -67,7 +67,7 @@ export default function TaskList(props) {
     const checkItem = { ...item };
     checkItem.checked = item.checked ? false : true;
     checkItem.action = "Edit";
-    console.log("item task:", checkItem);
+    // console.log("item task:", checkItem);
     onSave(checkItem);
     // const currentIndex = checked.indexOf(value);
     // const newChecked = [...checked];
@@ -81,7 +81,7 @@ export default function TaskList(props) {
 
   const onSave = (saveItem) => {
     setModalLive(false);
-    console.log("To save:", saveItem);
+    // console.log("To save:", saveItem);
     const { action, category, task, checked, id } = saveItem;
     if (action === "Edit") {
       const reqBody = {
@@ -219,7 +219,7 @@ export default function TaskList(props) {
         </div>
         <div className="modal-footer">
           <Button
-            color="secondary"
+            color="info"
             type="button"
             onClick={() => setModalLive(false)}
           >

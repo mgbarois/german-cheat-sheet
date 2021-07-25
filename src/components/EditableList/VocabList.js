@@ -51,7 +51,7 @@ export default function VocabListTest(props) {
   } = props.editFunctions;
 
   useEffect(() => {
-    console.log("Props.editFunctions", props.editFunctions);
+    // console.log("Props.editFunctions", props.editFunctions);
     setFocusItem(defaultFocus);
   }, []);
   const { rtlActive } = props;
@@ -61,7 +61,7 @@ export default function VocabListTest(props) {
 
   const onSave = () => {
     setModalLive(false);
-    console.log("To save:", focusItem);
+    // console.log("To save:", focusItem);
     const { action, id, de_word, en_word, pos } = focusItem;
     if (action === "Edit") {
       const reqBody = {
@@ -194,7 +194,7 @@ export default function VocabListTest(props) {
         </div>
         <div className="modal-footer">
           <Button
-            color="secondary"
+            color="info"
             type="button"
             onClick={() => setModalLive(false)}
           >

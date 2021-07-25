@@ -66,14 +66,14 @@ export default function Vocabulary() {
       body: JSON.stringify({ inputWord }),
     })
       .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-      })
+      // .then((data) => {
+      //   console.log(data);
+      // })
       .catch((err) => console.log(err));
   };
 
   const fetchTranslation = (inputWord) => {
-    console.log("Fetching translation for: ", inputWord);
+    // console.log("Fetching translation for: ", inputWord);
     fetch(
       `https://petapro-translate-v1.p.rapidapi.com/?query=${inputWord}&langpair=${translDir}`,
       {
@@ -87,7 +87,7 @@ export default function Vocabulary() {
       .then((resp) => resp.json())
       .then((data) => {
         setTranslOutput(data.slice(0, 2));
-        console.log(data);
+        // console.log(data);
         updateLookupCount();
       })
       .catch((err) => {
@@ -108,9 +108,9 @@ export default function Vocabulary() {
   };
 
   const onInputSubmit = () => {
-    console.log("Submitting german word");
+    // console.log("Submitting german word");
     const germanWord = translInput;
-    console.log("Word: ", germanWord);
+    // console.log("Word: ", germanWord);
     fetchTranslation(germanWord);
   };
 

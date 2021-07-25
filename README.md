@@ -4,11 +4,12 @@
 
 ## To do
 - Finish tables
-- Set picklist input types for list categories
-- Migrate db to heroku
-- Push latest api changes to heroku
-- Connect front end to heroku api
+- Set picklist input types for list categories (+ set appropriate defaults)
+- Adding a new task currently does not change the dashboard state -> fix this
+- Add "enter" keystroke event listener for modals
 - Customize styles
+
+- User/session setup
 
 ## Description
 
