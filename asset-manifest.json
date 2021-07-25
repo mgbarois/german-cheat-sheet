@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/german-cheat-sheet/static/css/main.cd3cbf53.chunk.css",
-    "main.js": "/german-cheat-sheet/static/js/main.582740c4.chunk.js",
-    "main.js.map": "/german-cheat-sheet/static/js/main.582740c4.chunk.js.map",
+    "main.js": "/german-cheat-sheet/static/js/main.a4e698be.chunk.js",
+    "main.js.map": "/german-cheat-sheet/static/js/main.a4e698be.chunk.js.map",
     "runtime-main.js": "/german-cheat-sheet/static/js/runtime-main.4b1088f3.js",
     "runtime-main.js.map": "/german-cheat-sheet/static/js/runtime-main.4b1088f3.js.map",
     "static/css/2.3bccd9d3.chunk.css": "/german-cheat-sheet/static/css/2.3bccd9d3.chunk.css",
@@ -12,7 +12,7 @@
     "static/css/2.3bccd9d3.chunk.css.map": "/german-cheat-sheet/static/css/2.3bccd9d3.chunk.css.map",
     "static/css/main.cd3cbf53.chunk.css.map": "/german-cheat-sheet/static/css/main.cd3cbf53.chunk.css.map",
     "static/js/2.0a3a6b9d.chunk.js.LICENSE.txt": "/german-cheat-sheet/static/js/2.0a3a6b9d.chunk.js.LICENSE.txt",
-    "static/js/main.582740c4.chunk.js.LICENSE.txt": "/german-cheat-sheet/static/js/main.582740c4.chunk.js.LICENSE.txt",
+    "static/js/main.a4e698be.chunk.js.LICENSE.txt": "/german-cheat-sheet/static/js/main.a4e698be.chunk.js.LICENSE.txt",
     "static/media/berlin (Large).7dbc2c68.jpg": "/german-cheat-sheet/static/media/berlin (Large).7dbc2c68.jpg",
     "static/media/cologne (Large).677f11ce.jpg": "/german-cheat-sheet/static/media/cologne (Large).677f11ce.jpg",
     "static/media/german_logo.a5828979.png": "/german-cheat-sheet/static/media/german_logo.a5828979.png",
@@ -26,6 +26,6 @@
     "static/css/2.3bccd9d3.chunk.css",
     "static/js/2.0a3a6b9d.chunk.js",
     "static/css/main.cd3cbf53.chunk.css",
-    "static/js/main.582740c4.chunk.js"
+    "static/js/main.a4e698be.chunk.js"
   ]
 }
